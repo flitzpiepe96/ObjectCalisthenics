@@ -1,9 +1,9 @@
 package de.dhbw.objectcalisthenics.minesweeper;
 
-import java.util.Set;
+import java.util.Map;
 
 public class GameField {
 
-	private Set<Position> mines;
+	private Map<Position, Cell> cells;
 
 }
