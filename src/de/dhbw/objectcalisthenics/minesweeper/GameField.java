@@ -16,17 +16,12 @@ public class GameField {
 	}
 
 	public void print(StringBuilder out) {
-		for (int row = 0; cells.containsKey(new Position(row, 0)); row++) {
-			printRow(row, out);
-		}
+		new Printer().print(out, cells);
 	}
 
-	private void printRow(int row, StringBuilder out) {
-		for (int column = 0; cells.containsKey(new Position(row, column)); column++) {
-			Cell cell = cells.get(new Position(row, column));
-			cell.print(out);
-		}
-		out.append("\n");
+	public void reveal(Position position) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

@@ -24,7 +24,7 @@ public class FieldGenerator {
 			int randomRow = rand.nextInt(rowCount);
 			int randomColumn = rand.nextInt(columnCount);
 			mines.add(new Position(randomRow, randomColumn));
-			field.setCell(new Position(randomRow, randomColumn), new Cell(State.MINE));
+			field.setCell(new Position(randomRow, randomColumn), new Cell(State.COVERED_MINE));
 		}
 		return field;
 	}

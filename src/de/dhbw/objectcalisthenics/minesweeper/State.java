@@ -2,7 +2,7 @@ package de.dhbw.objectcalisthenics.minesweeper;
 
 public enum State {
 
-	MINE("*"), COVERED("#"), UNCOVERED(".");
+	COVERED_MINE("#"), MINE("*"), COVERED("#"), UNCOVERED(".");
 
 	private String representation;
 
