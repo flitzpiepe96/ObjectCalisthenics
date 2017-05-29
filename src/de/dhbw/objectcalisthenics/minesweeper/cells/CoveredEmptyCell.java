@@ -2,8 +2,9 @@ package de.dhbw.objectcalisthenics.minesweeper.cells;
 
 import java.util.Map;
 
-import de.dhbw.objectcalisthenics.minesweeper.Counter;
-import de.dhbw.objectcalisthenics.minesweeper.Position;
+import de.dhbw.objectcalisthenics.minesweeper.utils.Counter;
+import de.dhbw.objectcalisthenics.minesweeper.utils.IActionPerformer;
+import de.dhbw.objectcalisthenics.minesweeper.utils.Position;
 
 public class CoveredEmptyCell extends Cell {
 
@@ -17,7 +18,11 @@ public class CoveredEmptyCell extends Cell {
 		Counter neighbourCount = calculateNeighbours(cells, position);
 		cells.put(position, new UncoveredEmptyCell(neighbourCount));
 		remainingCells.countDown();
-		neighbourCount.performZero(new IActionPerformer() {
+		neighbourCount.performZero(createPerformer(cells, position, remainingCells));
+	}
+
+	private IActionPerformer createPerformer(Map<Position, Cell> cells, Position position, Counter remainingCells) {
+		return new IActionPerformer() {
 
 			@Override
 			public void perform() {
@@ -31,7 +36,7 @@ public class CoveredEmptyCell extends Cell {
 				if (cell != null)
 					cell.reveal(cells, neighbours, remainingCells);
 			}
-		});
+		};
 	}
 
 	private Counter calculateNeighbours(Map<Position, Cell> cells, Position position) {

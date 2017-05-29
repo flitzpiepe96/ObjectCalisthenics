@@ -1,6 +1,4 @@
-package de.dhbw.objectcalisthenics.minesweeper;
-
-import de.dhbw.objectcalisthenics.minesweeper.cells.IActionPerformer;
+package de.dhbw.objectcalisthenics.minesweeper.utils;
 
 public class Counter {
 

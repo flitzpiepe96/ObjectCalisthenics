@@ -1,6 +1,7 @@
-package de.dhbw.objectcalisthenics.minesweeper;
+package de.dhbw.objectcalisthenics.minesweeper.field;
 
 import de.dhbw.objectcalisthenics.minesweeper.cells.CoveredEmptyCell;
+import de.dhbw.objectcalisthenics.minesweeper.utils.Position;
 
 public class EmptyFieldGenerator {
 

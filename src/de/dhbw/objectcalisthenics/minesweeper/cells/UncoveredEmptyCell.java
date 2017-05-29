@@ -2,8 +2,8 @@ package de.dhbw.objectcalisthenics.minesweeper.cells;
 
 import java.util.Map;
 
-import de.dhbw.objectcalisthenics.minesweeper.Counter;
-import de.dhbw.objectcalisthenics.minesweeper.Position;
+import de.dhbw.objectcalisthenics.minesweeper.utils.Counter;
+import de.dhbw.objectcalisthenics.minesweeper.utils.Position;
 
 public class UncoveredEmptyCell extends Cell {
 

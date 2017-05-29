@@ -1,4 +1,4 @@
-package de.dhbw.objectcalisthenics.minesweeper.cells;
+package de.dhbw.objectcalisthenics.minesweeper.utils;
 
 public interface IActionPerformer {
 

@@ -1,7 +1,9 @@
-package de.dhbw.objectcalisthenics.minesweeper;
+package de.dhbw.objectcalisthenics.minesweeper.field;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import de.dhbw.objectcalisthenics.minesweeper.utils.Position;
 
 public class MinePlacer {
 

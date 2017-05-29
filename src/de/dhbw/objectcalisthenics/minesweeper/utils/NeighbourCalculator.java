@@ -1,14 +1,14 @@
-package de.dhbw.objectcalisthenics.minesweeper;
+package de.dhbw.objectcalisthenics.minesweeper.utils;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Position {
+public class NeighbourCalculator {
 
 	private int row;
 	private int column;
 
-	public Position(int row, int column) {
+	public NeighbourCalculator(int row, int column) {
 		this.row = row;
 		this.column = column;
 	}
@@ -24,31 +24,6 @@ public class Position {
 		neighbours.add(new Position(row - 1, column));
 		neighbours.add(new Position(row - 1, column - 1));
 		return neighbours;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + column;
-		result = prime * result + row;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Position other = (Position) obj;
-		if (column != other.column)
-			return false;
-		if (row != other.row)
-			return false;
-		return true;
 	}
 
 }

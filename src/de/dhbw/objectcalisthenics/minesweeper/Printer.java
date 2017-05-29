@@ -3,6 +3,7 @@ package de.dhbw.objectcalisthenics.minesweeper;
 import java.util.Map;
 
 import de.dhbw.objectcalisthenics.minesweeper.cells.Cell;
+import de.dhbw.objectcalisthenics.minesweeper.utils.Position;
 
 public class Printer {
 

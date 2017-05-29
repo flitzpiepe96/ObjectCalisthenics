@@ -2,7 +2,11 @@ package de.dhbw.objectcalisthenics.minesweeper;
 
 import java.util.Scanner;
 
-import de.dhbw.objectcalisthenics.minesweeper.cells.IActionPerformer;
+import de.dhbw.objectcalisthenics.minesweeper.field.EmptyFieldGenerator;
+import de.dhbw.objectcalisthenics.minesweeper.field.GameField;
+import de.dhbw.objectcalisthenics.minesweeper.field.MinePlacer;
+import de.dhbw.objectcalisthenics.minesweeper.utils.Counter;
+import de.dhbw.objectcalisthenics.minesweeper.utils.Position;
 
 public class Main {
 
@@ -34,14 +38,7 @@ public class Main {
 			columnText = columnText.trim();
 
 			field.reveal(new Position(Integer.parseInt(rowText), Integer.parseInt(columnText)), remainingCells);
-			remainingCells.performZero(new IActionPerformer() {
-
-				@Override
-				public void perform() {
-					System.out.println("You won the game!");
-					System.exit(0);
-				}
-			});
+			remainingCells.performZero(new WinGamePerformer());
 		} while (true);
 	}
 }
