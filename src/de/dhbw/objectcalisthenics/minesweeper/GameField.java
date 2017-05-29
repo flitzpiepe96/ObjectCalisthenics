@@ -3,6 +3,8 @@ package de.dhbw.objectcalisthenics.minesweeper;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.dhbw.objectcalisthenics.minesweeper.cells.Cell;
+
 public class GameField {
 
 	private Map<Position, Cell> cells;
@@ -20,8 +22,6 @@ public class GameField {
 	}
 
 	public void reveal(Position position) {
-		// TODO Auto-generated method stub
-
+		cells.get(position).reveal(cells, position);
 	}
-
 }

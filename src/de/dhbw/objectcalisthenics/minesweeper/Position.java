@@ -1,5 +1,8 @@
 package de.dhbw.objectcalisthenics.minesweeper;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Position {
 
 	private int row;
@@ -8,6 +11,19 @@ public class Position {
 	public Position(int row, int column) {
 		this.row = row;
 		this.column = column;
+	}
+
+	public Set<Position> getNeighbours() {
+		Set<Position> neighbours = new HashSet<>();
+		neighbours.add(new Position(row + 1, column + 1));
+		neighbours.add(new Position(row + 1, column));
+		neighbours.add(new Position(row + 1, column - 1));
+		neighbours.add(new Position(row, column + 1));
+		neighbours.add(new Position(row, column - 1));
+		neighbours.add(new Position(row - 1, column + 1));
+		neighbours.add(new Position(row - 1, column));
+		neighbours.add(new Position(row - 1, column - 1));
+		return neighbours;
 	}
 
 	@Override

@@ -2,6 +2,8 @@ package de.dhbw.objectcalisthenics.minesweeper;
 
 import java.util.Map;
 
+import de.dhbw.objectcalisthenics.minesweeper.cells.Cell;
+
 public class Printer {
 
 	public void print(StringBuilder out, Map<Position, Cell> cells) {

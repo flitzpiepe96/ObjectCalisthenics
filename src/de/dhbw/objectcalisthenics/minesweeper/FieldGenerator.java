@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import de.dhbw.objectcalisthenics.minesweeper.cells.CoveredEmptyCell;
+import de.dhbw.objectcalisthenics.minesweeper.cells.CoveredMineCell;
+
 public class FieldGenerator {
 
 	public static final int MINE_COUNT = 10;
@@ -24,7 +27,7 @@ public class FieldGenerator {
 			int randomRow = rand.nextInt(rowCount);
 			int randomColumn = rand.nextInt(columnCount);
 			mines.add(new Position(randomRow, randomColumn));
-			field.setCell(new Position(randomRow, randomColumn), new Cell(State.COVERED_MINE));
+			field.setCell(new Position(randomRow, randomColumn), new CoveredMineCell());
 		}
 		return field;
 	}
@@ -39,7 +42,7 @@ public class FieldGenerator {
 
 	private void generateEmptyRow(GameField field, int row) {
 		for (int column = 0; column < columnCount; column++) {
-			field.setCell(new Position(row, column), new Cell(State.COVERED));
+			field.setCell(new Position(row, column), new CoveredEmptyCell());
 		}
 	}
 

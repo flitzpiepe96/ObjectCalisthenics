@@ -26,7 +26,7 @@ public class Main {
 			String columnText = read.split(",")[1];
 			columnText = columnText.trim();
 
-			field.reveal(new Position(Integer.parseInt(rowText), Integer.parseInt(rowText)));
+			field.reveal(new Position(Integer.parseInt(rowText), Integer.parseInt(columnText)));
 		} while (true);
 		// TODO
 	}

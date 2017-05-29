@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import de.dhbw.objectcalisthenics.minesweeper.cells.CoveredEmptyCell;
+
 public class GameFieldTest {
 
 	@Test
@@ -12,7 +14,7 @@ public class GameFieldTest {
 
 		for (int row = 0; row < 3; row++) {
 			for (int column = 0; column < 3; column++) {
-				field.setCell(new Position(row, column), new Cell(State.COVERED));
+				field.setCell(new Position(row, column), new CoveredEmptyCell());
 			}
 		}
 
