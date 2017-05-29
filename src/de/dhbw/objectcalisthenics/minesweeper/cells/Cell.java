@@ -9,7 +9,7 @@ public abstract class Cell {
 
 	public abstract void print(StringBuilder out);
 
-	public abstract void reveal(Map<Position, Cell> cells, Position position);
+	public abstract void reveal(Map<Position, Cell> cells, Position position, Counter remainingCells);
 
 	public abstract void countMine(Counter counter);
 

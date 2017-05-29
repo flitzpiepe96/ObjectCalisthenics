@@ -13,9 +13,10 @@ public class CoveredEmptyCell extends Cell {
 	}
 
 	@Override
-	public void reveal(Map<Position, Cell> cells, Position position) {
+	public void reveal(Map<Position, Cell> cells, Position position, Counter remainingCells) {
 		Counter neighbourCount = calculateNeighbours(cells, position);
 		cells.put(position, new UncoveredEmptyCell(neighbourCount));
+		remainingCells.countDown();
 		neighbourCount.performZero(new IActionPerformer() {
 
 			@Override
@@ -28,13 +29,13 @@ public class CoveredEmptyCell extends Cell {
 
 			private void revealIfExist(Cell cell, Position neighbours) {
 				if (cell != null)
-					cell.reveal(cells, neighbours);
+					cell.reveal(cells, neighbours, remainingCells);
 			}
 		});
 	}
 
 	private Counter calculateNeighbours(Map<Position, Cell> cells, Position position) {
-		Counter counter = new Counter();
+		Counter counter = new Counter(0);
 		for (Position neighbourPosition : position.getNeighbours()) {
 			Cell neighbourCell = cells.getOrDefault(neighbourPosition, new CoveredEmptyCell());
 			neighbourCell.countMine(counter);

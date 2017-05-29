@@ -6,12 +6,16 @@ public class Counter {
 
 	private int count;
 
-	public Counter() {
-		count = 0;
+	public Counter(int initial) {
+		count = initial;
 	}
 
 	public void countUp() {
 		count++;
+	}
+
+	public void countDown() {
+		count--;
 	}
 
 	public void print(StringBuilder out) {

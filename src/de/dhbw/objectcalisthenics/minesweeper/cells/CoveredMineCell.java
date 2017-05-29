@@ -13,8 +13,9 @@ public class CoveredMineCell extends Cell {
 	}
 
 	@Override
-	public void reveal(Map<Position, Cell> cells, Position position) {
-		// TODO do stuff
+	public void reveal(Map<Position, Cell> cells, Position position, Counter remainingCells) {
+		System.out.println("You lost the game!");
+		System.exit(0);
 	}
 
 	@Override

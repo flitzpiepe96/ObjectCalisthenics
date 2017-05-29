@@ -19,7 +19,7 @@ public class UncoveredEmptyCell extends Cell {
 	}
 
 	@Override
-	public void reveal(Map<Position, Cell> cells, Position position) {
+	public void reveal(Map<Position, Cell> cells, Position position, Counter remainingCells) {
 		// do nothing
 	}
 

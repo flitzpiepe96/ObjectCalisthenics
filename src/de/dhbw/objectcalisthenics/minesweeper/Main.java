@@ -2,18 +2,25 @@ package de.dhbw.objectcalisthenics.minesweeper;
 
 import java.util.Scanner;
 
+import de.dhbw.objectcalisthenics.minesweeper.cells.IActionPerformer;
+
 public class Main {
 
 	public static void main(String[] args) {
-		FieldGenerator generator = new FieldGenerator(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+		int rowCount = Integer.parseInt(args[0]);
+		int columnCount = Integer.parseInt(args[1]);
+		EmptyFieldGenerator generator = new EmptyFieldGenerator(rowCount, columnCount);
 		GameField field = generator.generateField();
+		int mineCount = Integer.parseInt(args[2]);
+		new MinePlacer(field, mineCount).placeMines();
+		Counter remainingCells = new Counter(columnCount * rowCount - mineCount);
 
 		try (Scanner scan = new Scanner(System.in)) {
-			playGame(field, scan);
+			playGame(field, scan, remainingCells);
 		}
 	}
 
-	private static void playGame(GameField field, Scanner scan) {
+	private static void playGame(GameField field, Scanner scan, Counter remainingCells) {
 		do {
 			StringBuilder out = new StringBuilder();
 			field.print(out);
@@ -26,8 +33,15 @@ public class Main {
 			String columnText = read.split(",")[1];
 			columnText = columnText.trim();
 
-			field.reveal(new Position(Integer.parseInt(rowText), Integer.parseInt(columnText)));
+			field.reveal(new Position(Integer.parseInt(rowText), Integer.parseInt(columnText)), remainingCells);
+			remainingCells.performZero(new IActionPerformer() {
+
+				@Override
+				public void perform() {
+					System.out.println("You won the game!");
+					System.exit(0);
+				}
+			});
 		} while (true);
-		// TODO
 	}
 }
