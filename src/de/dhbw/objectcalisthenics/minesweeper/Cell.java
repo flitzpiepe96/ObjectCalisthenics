@@ -12,4 +12,8 @@ public class Cell {
 		return new Cell(State.UNCOVERED);
 	}
 
+	public void print(StringBuilder out) {
+		state.print(out);
+	}
+
 }
