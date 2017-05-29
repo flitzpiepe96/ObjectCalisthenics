@@ -9,7 +9,7 @@ public class CoveredMineCell extends Cell {
 
 	@Override
 	public void print(StringBuilder out) {
-		out.append("#");
+		out.append("# ");
 	}
 
 	@Override

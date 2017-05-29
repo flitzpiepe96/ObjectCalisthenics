@@ -1,5 +1,7 @@
 package de.dhbw.objectcalisthenics.minesweeper;
 
+import de.dhbw.objectcalisthenics.minesweeper.cells.IActionPerformer;
+
 public class Counter {
 
 	private int count;
@@ -13,7 +15,16 @@ public class Counter {
 	}
 
 	public void print(StringBuilder out) {
-		out.append(count);
+		if (count == 0) {
+			out.append(". ");
+			return;
+		}
+		out.append(count + " ");
+	}
+
+	public void performZero(IActionPerformer performer) {
+		if (count == 0)
+			performer.perform();
 	}
 
 }

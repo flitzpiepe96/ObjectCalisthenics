@@ -9,13 +9,28 @@ public class CoveredEmptyCell extends Cell {
 
 	@Override
 	public void print(StringBuilder out) {
-		out.append("#");
+		out.append("# ");
 	}
 
 	@Override
 	public void reveal(Map<Position, Cell> cells, Position position) {
 		Counter neighbourCount = calculateNeighbours(cells, position);
 		cells.put(position, new UncoveredEmptyCell(neighbourCount));
+		neighbourCount.performZero(new IActionPerformer() {
+
+			@Override
+			public void perform() {
+				for (Position neighbours : position.getNeighbours()) {
+					Cell cell = cells.get(neighbours);
+					revealIfExist(cell, neighbours);
+				}
+			}
+
+			private void revealIfExist(Cell cell, Position neighbours) {
+				if (cell != null)
+					cell.reveal(cells, neighbours);
+			}
+		});
 	}
 
 	private Counter calculateNeighbours(Map<Position, Cell> cells, Position position) {
